@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+@theme {
+  --font-script: "Great Vibes", cursive;
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+  --color-pearl: #FFFDF8;
+  --color-celeste: #CFE6F5;
+  --color-celeste-soft: #E8F4FB;
+  --color-gold-light: #F3D36B;
+  --color-gold: #D4AF37;
+  --color-gold-deep: #8A6A12;
+  --color-ink: #2C3540;
+  --color-ink-muted: #556272;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: linear-gradient(180deg, #FFFDF8 0%, #F4F9FD 45%, #E4F1FA 80%, #FFFDF8 100%);
+    color: var(--color-ink);
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid #8A6A12;
+    outline-offset: 3px;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F3D36B 0%, #D4AF37 45%, #8A6A12 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #F3D36B 0%, #D4AF37 52%, #8A6A12 100%);
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(110deg, #8A6A12 0%, #D4AF37 32%, #F9E596 50%, #D4AF37 68%, #8A6A12 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: goldShimmer 4.5s ease-in-out infinite;
+}
+
+.gold-border-hairline {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.pearl-card {
+  background: rgba(255, 253, 248, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 0 12px 36px -14px rgba(138, 106, 18, 0.14), 0 4px 14px -4px rgba(100, 149, 186, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+/* Envelope 3D perspective */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Handwriting reveal clip animation */
+@keyframes scriptReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.4;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-script-reveal {
+  animation: scriptReveal 1.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Soft pulsing gold aura for envelope */
+@keyframes pulseGold {
+  0%, 100% {
+    transform: scale(0.98);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+/* Twinkling stars */
+@keyframes twinkleStar {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.8) rotate(0deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15) rotate(12deg);
+  }
+}
+
+.animate-twinkle {
+  animation: twinkleStar 3.4s ease-in-out infinite;
+}
+
+/* Gentle light ray shimmer */
+@keyframes rayBreath {
+  0%, 100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+.animate-ray {
+  animation: rayBreath 5s ease-in-out infinite;
+}
+
+/* Gliding doves across hero/farewell */
+@keyframes doveGlide {
+  0% {
+    transform: translate3d(-12vw, 10px, 0) scale(0.92);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(50vw, -16px, 0) scale(1);
+    opacity: 0.9;
+  }
+  88% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(112vw, -6px, 0) scale(0.95);
+    opacity: 0;
+  }
+}
+
+.animate-dove-glide {
+  animation: doveGlide 18s linear infinite;
+}
+
+@keyframes doveWing {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+}
+
+.animate-dove-wing {
+  animation: doveWing 2.2s ease-in-out infinite;
+}
+
+/* Falling envelopes in Lluvia de sobres (lightweight CSS loop) */
+@keyframes envelopeFall {
+  0% {
+    transform: translate3d(0, -64px, 0) rotate(-6deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.98;
+  }
+  50% {
+    transform: translate3d(10px, 160px, 0) rotate(5deg);
+    opacity: 1;
+  }
+  88% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-8px, 340px, 0) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+.animate-envelope-fall {
+  animation: envelopeFall linear infinite;
+}
+
+.animate-envelope-fall:hover,
+.animate-envelope-fall:focus-visible {
+  animation-play-state: paused;
+}
+
+/* Flip card animation */
+@keyframes flipDigit {
+  0% {
+    transform: rotateX(-85deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-flip-digit {
+  animation: flipDigit 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center top;
+}
+
+/* Confetti fall for RSVP celebration */
+@keyframes confettiDrop {
+  0% {
+    transform: translate3d(0, -20px, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 24px), 360px, 0) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti {
+  animation: confettiDrop 3.2s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes goldShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-script-reveal,
+  .animate-pulse-gold,
+  .animate-twinkle,
+  .animate-ray,
+  .animate-dove-glide,
+  .animate-dove-wing,
+  .animate-envelope-fall,
+  .animate-flip-digit,
+  .animate-confetti,
+  .gold-shimmer-text {
+    animation: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

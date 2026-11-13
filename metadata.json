@@ -1,0 +1,6 @@
+{
+  "name": "Primera Comunión - Juan Ángel",
+  "description": "Invitación digital interactiva a la Primera Comunión de Juan Ángel — domingo 6 de diciembre de 2026, Iglesia San Juan de Mata, Bogotá.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
